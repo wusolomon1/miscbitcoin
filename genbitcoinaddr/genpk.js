@@ -1,3 +1,7 @@
+/**
+ * generate a number of private keys.  
+ * the amount generated is given in parameter.
+ */
 var bitcore = require('bitcore');
 
 // take input

@@ -1,5 +1,7 @@
 '''
-simple script to import private key into coin daemon
+simple script to import private keys into coin daemon
+private keys should be in a file (one line per key).  
+private key should be a string in wif format.  
 '''
 import os
 import sys
@@ -8,6 +10,7 @@ cli = 'bitcoin-cli -gcoin'
 
 if len(sys.argv) < 2:
 	print 'usage: python importkey.py <filename>'
+	sys.exit(1)
 
 filename = sys.argv[1]
 

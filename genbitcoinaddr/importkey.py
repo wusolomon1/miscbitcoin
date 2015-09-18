@@ -14,11 +14,17 @@ if len(sys.argv) < 2:
 
 filename = sys.argv[1]
 
+suffix = ""
+if len(sys.argv) >= 3:
+	suffix = sys.argv[2]
+
 # this may not be able to handle a large file too well.
 privkeys = open(filename,'r').read().splitlines()
 
 for privkey in privkeys:
-	cmd = cli + ' importprivkey ' + str(privkey) + " 0"
+	# add 0 at the end so it does not rescan the blockchain when import private key
+	# add true at the end to indicate it is new key, not existing key.
+	cmd = cli + ' importprivkey ' + str(privkey) + " 0" + " " + suffix
 	os.system(cmd)
 	print cmd
 
